@@ -2,9 +2,6 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "cli": {
-    "defaultCollection": "@nativescript/schematics"
-  },
   "projects": {
     "tab-navigation": {
       "root": "",
@@ -13,5 +10,8 @@
       "prefix": "ns"
     }
   },
-  "defaultProject": "tab-navigation"
+  "defaultProject": "tab-navigation",
+  "cli": {
+    "analytics": false
+  }
 }
