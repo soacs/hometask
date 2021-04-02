@@ -26,6 +26,12 @@ const routes: Routes = [
         component: NSEmptyOutletComponent,
         loadChildren: () => import("~/app/search/search.module").then((m) => m.SearchModule),
         outlet: "searchTab"
+    },
+    {
+        path: "create",
+        component: NSEmptyOutletComponent,
+        loadChildren: () => import("~/app/create/create.module").then((m) => m.CreateModule),
+        outlet: "createTab"
     }
 ];
 

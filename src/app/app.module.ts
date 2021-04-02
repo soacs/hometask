@@ -7,6 +7,6 @@ import { AppComponent } from "./app.component";
     bootstrap: [AppComponent],
     imports: [NativeScriptModule, AppRoutingModule],
     declarations: [AppComponent],
-    schemas: [NO_ERRORS_SCHEMA],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
