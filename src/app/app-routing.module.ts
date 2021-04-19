@@ -5,15 +5,20 @@ import { NativeScriptRouterModule, NSEmptyOutletComponent } from "@nativescript/
 const routes: Routes = [
     {
         path: "",
-        redirectTo: "/(homeTab:home/default//browseTab:browse/default//searchTab:search/default)",
+        redirectTo: "/(homeTab:home/default//createTab:create/default//browseTab:browse/default//searchTab:search/default)",
         pathMatch: "full"
     },
-
     {
         path: "home",
         component: NSEmptyOutletComponent,
         loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule),
         outlet: "homeTab"
+    },
+    {
+        path: "create",
+        component: NSEmptyOutletComponent,
+        loadChildren: () => import("~/app/create/create.module").then((m) => m.CreateModule),
+        outlet: "createTab"
     },
     {
         path: "browse",
