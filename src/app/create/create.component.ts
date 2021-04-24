@@ -39,4 +39,10 @@ export class CreateComponent implements OnInit {
         }
     }
 
+    onSliderValueChange(args) {
+        const slider = args.object;
+        slider.on("valueChange", (_args) => {
+            console.log(_args.value);
+        })
+    }
 }

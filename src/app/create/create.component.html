@@ -18,8 +18,8 @@
             <ListPicker [items]="rooms" textField="name" valueField="id"></ListPicker>
         </StackLayout>
         <StackLayout orientation="horizontal" class="text-center">
-            <Label text="Service Needed:" width="70" height="50"></Label>
-            <Slider value="80"></Slider>
+            <Label text="Service Needed:" width="140" height="30"></Label>
+            <Slider value="100" minlength="0" maxlength="100" width="300" (valueChange)="onSliderValueChange($event)"></Slider>
         </StackLayout>
 
         <GridLayout orientation="horizontal"  columns="auto, auto">
