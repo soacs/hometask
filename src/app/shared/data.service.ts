@@ -6,6 +6,23 @@ export interface DataItem {
     description: string;
 }
 
+export interface RoomItem {
+    id: number;
+    name: string;
+    toString(): string;
+}
+
+export interface CountryItem {
+    id: number;
+    name: string;
+    toString(): string;
+}
+export interface StateItem {
+    id: number;
+    name: string;
+    toString(): string;
+}
+
 @Injectable({
     providedIn: "root"
 })
@@ -61,56 +78,6 @@ export class DataService {
             id: 10,
             name: "Item 10",
             description: "Description for Item 10"
-        },
-        {
-            id: 11,
-            name: "Item 11",
-            description: "Description for Item 11"
-        },
-        {
-            id: 12,
-            name: "Item 12",
-            description: "Description for Item 12"
-        },
-        {
-            id: 13,
-            name: "Item 13",
-            description: "Description for Item 13"
-        },
-        {
-            id: 14,
-            name: "Item 14",
-            description: "Description for Item 14"
-        },
-        {
-            id: 15,
-            name: "Item 15",
-            description: "Description for Item 15"
-        },
-        {
-            id: 16,
-            name: "Item 16",
-            description: "Description for Item 16"
-        },
-        {
-            id: 17,
-            name: "Item 17",
-            description: "Description for Item 17"
-        },
-        {
-            id: 18,
-            name: "Item 18",
-            description: "Description for Item 18"
-        },
-        {
-            id: 19,
-            name: "Item 19",
-            description: "Description for Item 19"
-        },
-        {
-            id: 20,
-            name: "Item 20",
-            description: "Description for Item 20"
         }
     );
 
@@ -121,4 +88,111 @@ export class DataService {
     getItem(id: number): DataItem {
         return this.items.filter((item) => item.id === id)[0];
     }
+
+    getCountryItems(id: number): Array<CountryItem> {
+        return this.countries;
+    }
+    getCountryItem(id: number): Array<CountryItem> {
+        return this.countries.filter((item) => item.id === id);
+    }
+
+
+    getStateItems(id: number): Array<StateItem> {
+        return this.states;
+    }
+    getStateItem(id: number): Array<StateItem> {
+        return this.states.filter((item) => item.id === id);
+    }
+    getRoomItems(id: number): Array<RoomItem> {
+        return this.rooms;
+    }
+    getRoomItem(id: number): Array<RoomItem> {
+        return this.countries.filter((item) => item.id === id);
+    }
+
+    private countries: Array<CountryItem> = [
+        {
+            id: 0,
+            name: 'United States',
+            toString: () => {
+                return 'United States';
+            }
+        },
+        {
+            id: 1,
+            name: 'Denmark',
+            toString: () => {
+                return 'Denmark';
+            }
+        },
+        {
+            id: 2,
+            name: 'Norway',
+            toString: () => {
+                return 'Norway';
+            }
+        },
+        {
+            id: 3,
+            name: 'Finland',
+            toString: () => {
+                return 'Finland';
+            }
+        }
+    ];
+
+    private states: Array<StateItem> = [
+        {
+            id: 0,
+            name: 'Connecticut',
+            toString: () => {
+                return 'Connecticut';
+            }
+        },
+        {
+            id: 1,
+            name: 'New York',
+            toString: () => {
+                return 'New York';
+            }
+        },
+        {
+            id: 2,
+            name: 'New Jersey',
+            toString: () => {
+                return 'New Jersey';
+            }
+        }
+    ];
+
+    private rooms: Array<RoomItem> = [
+        {
+            id: 0,
+            name: 'Bathroom',
+            toString: () => {
+                return 'Bathroom';
+            }
+        },
+        {
+            id: 1,
+            name: 'Living Room',
+            toString: () => {
+                return 'Living Room';
+            }
+        },
+        {
+            id: 2,
+            name: 'Kitchen',
+            toString: () => {
+                return 'Kitchen';
+            }
+        },
+        {
+            id: 3,
+            name: 'Driveway',
+            toString: () => {
+                return 'Driveway';
+            }
+        }
+    ];
 }
