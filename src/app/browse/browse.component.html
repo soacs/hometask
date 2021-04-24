@@ -7,3 +7,12 @@
     <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
 </GridLayout>
 
+<GridLayout>
+    <ListView [items]="items">
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label [nsRouterLink]="['../item', item.id]" [text]="item.name"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>
