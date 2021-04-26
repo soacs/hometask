@@ -4,7 +4,8 @@ import { StateItem, RoomItem, CountryItem, DataService } from "~/app/shared/data
 
 @Component({
     selector: "Create",
-    templateUrl: "./create.component.html"
+    templateUrl: "./create.component.html",
+    styleUrls: ["./create.component.css"]
 })
 export class CreateComponent implements OnInit {
     countries: Array<CountryItem>;
@@ -17,6 +18,9 @@ export class CreateComponent implements OnInit {
     currentDay =  12;
     currentMonth: 1;
     mydate = new Date().toDateString();
+    taskName = 'Bedroom Closet';
+    timeFrame: number;
+    serviceNeedText: string;
 
     constructor(private _itemService: DataService) {
     }
@@ -25,6 +29,8 @@ export class CreateComponent implements OnInit {
         this.countries = this._itemService.getCountryItems(0);
         this.rooms = this._itemService.getRoomItems(0);
         this.states = this._itemService.getStateItems(0);
+        this.timeFrame = 0;
+        this.serviceNeedText = "Needed Immediately?";
     }
 
     checkStatus = false;
@@ -42,7 +48,13 @@ export class CreateComponent implements OnInit {
     onSliderValueChange(args) {
         const slider = args.object;
         slider.on("valueChange", (_args) => {
+            this.timeFrame = Math.floor(_args.value / 10.0);
+            this.serviceNeedText = 'Needed in ' + this.timeFrame + ' weeks!';
             console.log(_args.value);
         })
+    }
+    setProjecTaskLocation($event){
+        const selectedIndex = $event.object.selectedIndex;
+        this.taskName = this.rooms[selectedIndex] + '';
     }
 }
