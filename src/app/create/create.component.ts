@@ -21,6 +21,7 @@ export class CreateComponent implements OnInit {
     taskName = 'Bedroom Closet';
     timeFrame: number;
     serviceNeedText: string;
+    switchValue: boolean;
 
     constructor(private _itemService: DataService) {
     }
@@ -36,9 +37,10 @@ export class CreateComponent implements OnInit {
     checkStatus = false;
     switchStat = "not checked";
 
-    onChange(value) {
-        console.log("switch " + value);
-        if (value) {
+    onChange() {
+        this.checkStatus = !this.checkStatus;
+        console.log("checkStatus " + this.checkStatus);
+        if (this.checkStatus) {
             this.switchStat = "checked";
         } else {
             this.switchStat = "not checked";

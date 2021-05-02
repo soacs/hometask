@@ -1,35 +1,46 @@
 <ActionBar>
     <Label text="Create Home Project"></Label>
 </ActionBar>
-<ScrollView backgroundColor="SkyBlue">
-    <StackLayout orientation="vertical" class="text-left" verticalAlignment="top" class="m-x-10" backgroundColor="SkyBlue">
-        <StackLayout orientation="horizontal" class="text-left" >
-            <Label text="Today's Date:" width="80" height="30" fontWeight="Bold"></Label>
-            <Label text="{{ mydate }}" width="140" height="30" fontStyle="italic"></Label>
-        </StackLayout>
-        <StackLayout orientation="horizontal" class="text-left">
-            <Label text="Project Name:" width="80" height="30" fontWeight="Bold"></Label>
-            <Label text="{{ taskName }}" width="140" height="30" fontStyle="italic"></Label>
-        </StackLayout>
-        <StackLayout orientation="horizontal" class="text-left">
-            <Label text="Project Task Location:" width="200" height="30"></Label>
-            <ListPicker [items]="rooms" textField="name" valueField="id" width="200" (selectedIndexChange)="setProjecTaskLocation($event)" class="list-picker"></ListPicker>
-        </StackLayout>
-        <StackLayout orientation="horizontal">
-            <Label [text]="serviceNeedText" width="160" height="30"></Label>
-            <Slider value="0" minlength="0" maxlength="100" (valueChange)="onSliderValueChange($event)" width="160"></Slider>
-        </StackLayout>
-            <StackLayout orientation="horizontal">
-                <Label text="State" width="80" height="30" class="m-x-10 m-b-10"></Label>
-                <ListPicker [items]="states" textField="name" valueField="0" class="m-x-10" class="text-right" class="list-picker"></ListPicker>
+<ScrollView backgroundColor="White">
+
+        <StackLayout orientation="vertical" class="text-left" verticalAlignment="top" class="m-x-10">
+            <StackLayout orientation="horizontal" class="text-center">
+                <Label text="Today's Date:" width="20%" height="30" fontWeight="Bold" class="text-left" ></Label>
+                <Label text="{{ mydate }}" width="80%" height="30" fontStyle="italic" class="text-left"></Label>
             </StackLayout>
-            <StackLayout orientation="horizontal">
-                <Label text="Country" width="80" height="30" class="m-x-10 m-b-10"></Label>
-                <ListPicker [items]="countries" textField="name" valueField="0" class="m-x-10" class="list-picker"></ListPicker>
+            <StackLayout orientation="horizontal" class="text-center">
+                <Label text="Project Name:" width="20%" height="30" fontWeight="Bold" class="text-left"></Label>
+                <Label text="{{ taskName }}" width="80%" height="30" fontStyle="italic" class="text-left"></Label>
+            </StackLayout>
+            <StackLayout orientation="horizontal" class="text-left stack-layout">
+                <Label text="Location:" width="30%" height="30" fontWeight="Bold"></Label>
+                <ListPicker [items]="rooms" textField="name" valueField="id" width="40%"
+                            (selectedIndexChange)="setProjecTaskLocation($event)" class="list-picker text-center"></ListPicker>
+            </StackLayout>
+            <StackLayout orientation="horizontal" class="stack-layout">
+                <Label [text]="serviceNeedText" width="30%" height="30" fontWeight="Bold"></Label>
+                <Slider value="0" minlength="0" maxlength="100" (valueChange)="onSliderValueChange($event)"
+                        width="70%"></Slider>
             </StackLayout>
 
-        <Button text="Submit" class="btn btn-primary" color="blue"></Button>
-        <Switch #sw [checked]="checkStatus" (checkedChange)="onChange(true)"></Switch>
-    </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Label text="State:" width="15%" height="30" class="m-x-10 m-b-10" fontWeight="Bold"></Label>
+                <ListPicker [items]="states" textField="name" valueField="0" class="m-x-10" width="40%"
+                            class="text-right" class="list-picker" fontWeight="Bold"></ListPicker>
+                <Label text="Country:" width="20%" height="30"
+                       class="m-x-10 m-b-10 text-center" fontWeight="Bold"></Label>
+                <Label text="U.S.A." width="25%" height="30" class="m-x-10 m-b-10"></Label>
+            </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Label text="Home Owner: {{ checkStatus }}" width="200" height="30"
+                       class="m-x-10 m-b-10" fontWeight="Bold"></Label>
+                <Switch #sw [checked]="checkStatus" (checkedChange)="onChange()"></Switch>
+                <Label text="Status: {{ checkStatus }}" width="100" height="30" class="m-x-10 m-b-10"></Label>
+            </StackLayout>
+
+
+            <Button text="Submit" class="btn btn-primary" class="button"></Button>
+
+        </StackLayout>
 
 </ScrollView>
