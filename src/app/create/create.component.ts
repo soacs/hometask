@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from "@angular/core";
 
 import { StateItem, RoomItem, CountryItem, DataService } from "~/app/shared/data.service";
+import { Button } from "@nativescript/core/ui/button/index.android";
 
 @Component({
     selector: "Create",
@@ -22,6 +24,8 @@ export class CreateComponent implements OnInit {
     timeFrame: number;
     serviceNeedText: string;
     switchValue: boolean;
+    budget: number = 200;
+    budgetText: string;
 
     constructor(private _itemService: DataService) {
     }
@@ -55,8 +59,25 @@ export class CreateComponent implements OnInit {
             console.log(_args.value);
         })
     }
-    setProjecTaskLocation($event){
+
+    onBudgetChange(args) {
+        const slider = args.object;
+        slider.on("valueChange", (_args) => {
+            this.budget = Math.floor(_args.value * 200);
+            this.budgetText = 'Budget: ' + this.budget + '$';
+            console.log(_args.value);
+        })
+    }
+
+    setProjecTaskLocation($event) {
         const selectedIndex = $event.object.selectedIndex;
         this.taskName = this.rooms[selectedIndex] + '';
+    }
+
+    onButtonTap($event): void {
+        console.log($event.object.toString());
+        const button = <Button>$event.object;
+        console.log(button.text);
+        console.log(this.budget);
     }
 }

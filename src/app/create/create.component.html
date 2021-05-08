@@ -1,4 +1,4 @@
-<ActionBar>
+<ActionBar backgroundColor="Dodgerblue">
     <Label text="Create Home Project"></Label>
 </ActionBar>
 <ScrollView backgroundColor="White">
@@ -32,14 +32,26 @@
                 <Label text="U.S.A." width="25%" height="30" class="m-x-10 m-b-10"></Label>
             </StackLayout>
             <StackLayout orientation="horizontal">
-                <Label text="Home Owner: {{ checkStatus }}" width="200" height="30"
+                <Label text="Home Owner: " width="30%" height="30"
                        class="m-x-10 m-b-10" fontWeight="Bold"></Label>
-                <Switch #sw [checked]="checkStatus" (checkedChange)="onChange()"></Switch>
-                <Label text="Status: {{ checkStatus }}" width="100" height="30" class="m-x-10 m-b-10"></Label>
+                <Label text="{{ checkStatus }}" width="20%" height="30"
+                       class="m-x-10 m-b-10"></Label>
+                <Switch #sw [checked]="checkStatus" (checkedChange)="onChange()" width="20%" class="text-left"></Switch>
+            </StackLayout>
+
+            <StackLayout orientation="horizontal">
+                <Label text="Budget: " width="20%" height="30"
+                       class="m-x-10 m-b-10" fontWeight="Bold"></Label>
+                <Label text="{{ budget }}" width="10%" height="30"
+                       class="m-x-10 m-b-10"></Label>
+                <Label text="$" width="10%" height="30"
+                       class="m-x-10 m-b-10" class="text-left" ></Label>
+                <Slider value="0" minlength="0" maxlength="2000" (valueChange)="onBudgetChange($event)"
+                        width="60%"></Slider>
             </StackLayout>
 
 
-            <Button text="Submit" class="btn btn-primary" class="button"></Button>
+            <Button text="Submit" class="btn btn-primary" class="button" (tap)="onButtonTap($event)"></Button>
 
         </StackLayout>
 
