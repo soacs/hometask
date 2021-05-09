@@ -12,11 +12,11 @@
 
             <Label row="1" col="0" text="Project Name:" width="40%" height="30" fontWeight="Bold"
                    class="text-left"></Label>
-            <Label row="1" col="1" text="{{ taskName }}" width="40%" height="30" fontStyle="italic"
+            <Label row="1" col="1" text="{{ taskLocation }}" width="40%" height="30" fontStyle="italic"
                    class="text-left"></Label>
 
             <Label row="2" col="0" text="Location:" width="40%" height="30" fontWeight="Bold"></Label>
-            <ListPicker row="2" col="1" [items]="rooms" textField="name" valueField="id" width="40%"
+            <ListPicker row="2" col="1" [items]="rooms"  width="40%"
                         (selectedIndexChange)="setProjecTaskLocation($event)"
                         class="list-picker text-center"></ListPicker>
 
@@ -27,23 +27,26 @@
             <Label row="4" col="0" text="State:" width="40%" height="30" class="m-x-10 m-b-10"
                    fontWeight="Bold"></Label>
             <ListPicker row="4" col="1" [items]="states" textField="name" valueField="0" class="m-x-10" width="40%"
-                        class="text-right" class="list-picker" fontWeight="Bold"></ListPicker>
+                        class="text-right" class="list-picker"  [(ngModel)]="state" fontWeight="Bold"></ListPicker>
+
+
             <Label row="5" col="0" text="Country:" width="40%" height="30"
                    class="m-x-10 m-b-10" fontWeight="Bold"></Label>
-            <Label row="5" col="1" text="U.S.A." width="40%" height="30" class="m-x-10 m-b-10"></Label>
+            <Label row="5" col="1" text="{{ country }}" width="40%" height="30" class="m-x-10 m-b-10" ></Label>
 
-            <Label row="6" col="0" text="Home Owner: {{ checkStatus }}" width="40%" height="30"
+            <Label row="6" col="0" text="Home Owner: {{ homeOwnerStatus }}" width="40%" height="30"
                    class="m-x-10 m-b-10" fontWeight="Bold"></Label>
 
-            <Switch #sw row="6" col="1" [checked]="checkStatus" (checkedChange)="onChange()" width="40%"
+            <Switch #sw row="6" col="1" [checked]="homeOwnerStatus" (checkedChange)="onChange()" width="40%"
                     class="text-left"></Switch>
 
-                <Label row="7" col="0" text="Budget: " width="40%" height="30"
+            <Label row="7" col="0" text="Budget: " width="40%" height="30"
                        class="m-x-10 m-b-10" fontWeight="Bold"></Label>
+
             <Slider row="7" col="1" value="0" minlength="0" maxlength="2000" (valueChange)="onBudgetChange($event)"
                     width="60%"></Slider>
 
-            <Label row="8" col="1" text=" $ {{ budget }}" width="10%" height="30"
+            <Label row="8" col="1" text=" $ {{ budget }}" width="40%" height="30"
                        class="m-x-10 m-b-10 text-left"></Label>
 
         </GridLayout>

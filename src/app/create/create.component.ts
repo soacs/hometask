@@ -13,19 +13,21 @@ export class CreateComponent implements OnInit {
     countries: Array<CountryItem>;
     rooms: Array<RoomItem>;
     states: Array<StateItem>;
-    item: string;
-    room: string;
     state: string;
+    country = 'United States';
+    room: string;
     currentYear = 2021;
     currentDay =  12;
     currentMonth: 1;
-    mydate = new Date().toDateString();
-    taskName = 'Bedroom Closet';
+    mydate = new Date().toISOString();
+    taskLocation = 'Bedroom Closet';
+    projectName: string;
     timeFrame: number;
     serviceNeedText: string;
     switchValue: boolean;
     budget: number = 200;
-    budgetText: string;
+    homeOwnerStatus = false;
+    switchStat = "not checked";
 
     constructor(private _itemService: DataService) {
     }
@@ -38,13 +40,10 @@ export class CreateComponent implements OnInit {
         this.serviceNeedText = "Needed Immediately?";
     }
 
-    checkStatus = false;
-    switchStat = "not checked";
-
     onChange() {
-        this.checkStatus = !this.checkStatus;
-        console.log("checkStatus " + this.checkStatus);
-        if (this.checkStatus) {
+        this.homeOwnerStatus = !this.homeOwnerStatus;
+        console.log("checkStatus " + this.homeOwnerStatus);
+        if (this.homeOwnerStatus) {
             this.switchStat = "checked";
         } else {
             this.switchStat = "not checked";
@@ -64,20 +63,30 @@ export class CreateComponent implements OnInit {
         const slider = args.object;
         slider.on("valueChange", (_args) => {
             this.budget = Math.floor(_args.value * 200);
-            this.budgetText = 'Budget: ' + this.budget + '$';
             console.log(_args.value);
         })
     }
 
     setProjecTaskLocation($event) {
         const selectedIndex = $event.object.selectedIndex;
-        this.taskName = this.rooms[selectedIndex] + '';
+        this.taskLocation = this.rooms[selectedIndex] + '';
+        this.projectName = this.taskLocation + '-' + this.mydate;
     }
 
     onButtonTap($event): void {
         console.log($event.object.toString());
         const button = <Button>$event.object;
-        console.log(button.text);
-        console.log(this.budget);
+
+        console.log('projectName: ' + this.projectName);
+        console.log('state: ' + this.states[this.state]);
+        console.log('country: ' + this.country);
+        console.log('Date: ' + this.mydate);
+        console.log('taskLocation: ' + this.taskLocation);
+        console.log('timeFrame (weeks): ' + this.timeFrame);
+        console.log('serviceNeedText: ' + this.serviceNeedText);
+        console.log('homeOwnerStatus: ' + this.homeOwnerStatus);
+        console.log('budget: $ ' + this.budget);
+
+
     }
 }
