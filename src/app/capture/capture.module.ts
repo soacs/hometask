@@ -1,7 +1,9 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule, NativeScriptFormsModule } from "@nativescript/angular";
-import { CreateRoutingModule } from "./create-routing.module";
-import { CreateComponent } from "./create.component";
+import { CreateRoutingModule } from "./capture-routing.module";
+import { CaptureComponent } from "./capture.component";
+
+console.log('capture instantiate');
 
 @NgModule({
     imports: [
@@ -10,10 +12,10 @@ import { CreateComponent } from "./create.component";
         CreateRoutingModule
     ],
     declarations: [
-        CreateComponent
+        CaptureComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class CreateModule { }
+export class CaptureModule { }

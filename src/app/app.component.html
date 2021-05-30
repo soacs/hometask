@@ -1,10 +1,6 @@
 <BottomNavigation>
     <TabStrip>
         <TabStripItem class="navigation__item">
-            <!--
-                Note TabStripItem will only accept single Label and/or single Image elements that it
-                will "adopt"; any other layout elements you try to specify will be ignored
-            -->
             <Label text="Home"></Label>
             <Image src="font://&#xf015;" class="fas t-36"></Image>
         </TabStripItem>
@@ -19,6 +15,10 @@
         <TabStripItem class="navigation__item">
             <Label text="Search"></Label>
             <Image src="font://&#xf002;" class="fas t-36"></Image>
+        </TabStripItem>
+        <TabStripItem class="navigation__item">
+            <Label text="Capture"></Label>
+            <Image src="font://&#xf030;" class="fas t-36"></Image>
         </TabStripItem>
     </TabStrip>
 
@@ -37,4 +37,9 @@
     <TabContentItem>
         <page-router-outlet name="searchTab"></page-router-outlet>
     </TabContentItem>
+
+    <TabContentItem>
+        <page-router-outlet name="captureTab"></page-router-outlet>
+    </TabContentItem>
+
 </BottomNavigation>

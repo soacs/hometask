@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule, NSEmptyOutletComponent } from "@nativescript/angular";
-import { CreateComponent } from "./create.component";
+import { CaptureComponent } from "./capture.component";
 
 const routes: Routes = [
     {
-      path: "default", component: CreateComponent
+        path: "capture", component: CaptureComponent
     }
 ];
 
@@ -13,4 +13,5 @@ const routes: Routes = [
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class CreateRoutingModule { }
+export class CreateRoutingModule {
+}

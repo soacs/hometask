@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 
 import { StateItem, RoomItem, CountryItem, DataService } from "~/app/shared/data.service";
 import { Button } from "@nativescript/core/ui/button/index.android";
+import { RouterExtensions } from "@nativescript/angular";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "Create",
@@ -29,7 +31,8 @@ export class CreateComponent implements OnInit {
     homeOwnerStatus = false;
     switchStat = "not checked";
 
-    constructor(private _itemService: DataService) {
+    constructor(private _itemService: DataService, private routerExtensions: RouterExtensions, private activeRoute: ActivatedRoute) {
+        console.log("activeRoute " + activeRoute);
     }
 
     ngOnInit(): void {
@@ -74,9 +77,8 @@ export class CreateComponent implements OnInit {
     }
 
     onButtonTap($event): void {
-        console.log($event.object.toString());
         const button = <Button>$event.object;
-
+        console.log('clicked on : ' + button.text);
         console.log('projectName: ' + this.projectName);
         console.log('state: ' + this.states[this.state]);
         console.log('country: ' + this.country);
@@ -87,6 +89,8 @@ export class CreateComponent implements OnInit {
         console.log('homeOwnerStatus: ' + this.homeOwnerStatus);
         console.log('budget: $ ' + this.budget);
 
+   //     this.routerExtensions.navigate(["home"], { relativeTo: this.activeRoute });
 
+        this.routerExtensions.navigateByUrl("video-capture");
     }
 }

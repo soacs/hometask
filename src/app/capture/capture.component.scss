@@ -1,0 +1,33 @@
+
+.picker {
+  background-color: blanchedalmond;
+  color: red;
+  border-color: brown;
+  border-radius: 20;
+  border-width: 2;
+  width: 200;
+  height: 100;
+  vertical-align: middle;
+}
+
+form label{
+  font-weight:bold;
+}
+
+.list-picker{
+  height: 300px;
+}
+
+button {
+  color: #fff;
+  font-size: 14;
+  background-color: #000;
+  border-radius: 20;
+  text-transform: uppercase;
+  padding:10;
+  margin: 10 0;
+}
+
+StackLayout Label {
+  margin: 5;
+}
