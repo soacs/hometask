@@ -40,13 +40,13 @@
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
     "@nativescript/angular": "~11.0.0",
+    "@nativescript/camera": "^5.0.2",
     "@nativescript/core": "~7.1.0",
+    "@nativescript/imagepicker": "^1.0.0",
     "@nativescript/theme": "~2.3.0",
-    "nativescript-camera": "^4.5.0",
     "nativescript-livesync": "^1.4.1",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.6.0",
-    "tns-core-modules": "^6.5.27",
     "zone.js": "~0.11.1"
   },
   "devDependencies": {

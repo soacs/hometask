@@ -1,7 +1,8 @@
 <ActionBar>
-    <Label text="Capture"></Label>
+    <Label text="Capture Video"></Label>
 </ActionBar>
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf030;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Publish page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="p-20">
+
+    <Button text="Take Picture" (tap)="captureIt($event)"></Button>
+
+</StackLayout>
